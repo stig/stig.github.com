@@ -5,218 +5,39 @@ mine. Sometimes I blog because I have something to say, sometimes it's
 just to practice writing. It used to be that most articles were tech
 related, but I think that ship has sailed now.
 
-Below is a full list of articles, in reverse chronological order. I
-also maintain a separate [[file:theindex.org][concept index]].
+The [[file:articles.org][articles]] page has a full list of articles, in reverse
+chronological order of publishing. I also maintain a separate [[file:theindex.org][concept
+index]]. Below is a selection of articles that are either my own
+favourites, or are particularly popular with readers.
 
-* 2018
-
-** [[file:articles/2018/support-my-foss-work.org][How to Support my FOSS Work!]]
-
-I present four ways you can support me if you have (or continue to)
-benefit from my work on Free and Open Source Software.
-
-* 2017
-
-** [[file:articles/2017/printing-music.org][Printing Music (Through My Stereo!)]]
-
-I explain how I set up MPlayer as a printer driver so I could add a
-distributed print queue for music. (AKA a JukeBox.)
-
-** [[file:articles/2017/parking-in-berwick-upon-tweed.org][Open Letter to NCC about Parking in Berwick]]
-
-I complain about the unacceptable parking situation for commuters to
-Berwick-upon-Tweed and present a few suggestions for improvement that
-might help.
-
-** [[file:articles/2017/dns-cloudformation-importvalue.org][Updating DNS with output of another CloudFormation stack]]
-
-I show the changes to my Sceptre config & CloudFormation template
-required to point DNS to the two CloudFront distributions I've
-created.
-
-** [[file:articles/2017/publishing-this-blog-to-s3.org][Publishing this blog to an S3 bucket]]
-
-I show briefly the changes I need to make to publish this blog to S3
-rather than to GitHub.
-
-** [[file:articles/2017/s3-website-with-https-using-cloudformation.org][Creating S3 website with SSL using CloudFormation]]
-
-I show how to create an S3 bucket set up to serve a static website,
-and expose it over HTTPS via CloudFront, using the same SSL
-certificate we created in the previous post---all via CloudFormation.
-
-** [[file:articles/2017/ssl-enabled-s3-redirects-with-cloudformation.org][Adding SSL to S3 Redirect Bucket with CloudFormation]]
-
-I show how to create an S3 bucket for redirecting web requests, put it
-behind a CloudFront distribution, and configured /this/ with an SSL
-certificate---all via CloudFormation.
-
-** [[file:articles/2017/route-53-cloudformation.org][Managing AWS Route 53 with CloudFormation]]
-
-In which I delegate DNS from Gandi to AWS Route 53, and learn how to
-configure Route 53 with CloudFormation & Sceptre.
-
-** [[file:articles/2017/adding-ssl.org][Adding SSL to this Blog]]
-
-I outline the steps I plan to take to add SSL to this blog, leveraging
-AWS Certificate Manager, CloudFront, S3 and Route 53. (And potentially
-CloudFormation.)
-
-** [[file:articles/2017/blogging-with-org-mode-update.org][Blogging with Org mode---update]]
-
-A short experience report about blogging with Org mode.
-
-** [[file:articles/2017/potter-coding-dojo.org][Potter Coding Dojo in Clojure]]
-
-Detailing my trials and tribulations with the "Potter" coding dojo
-problem, with code examples in Clojure.
-
-** [[file:articles/2017/n-queens.org][N Queens in Clojure]]
+* [[file:articles/2017/n-queens.org][N Queens in Clojure]]
 
 Solving the problem of putting N Queens on an /N/ by /N/ chess board
 without them being able to threaten eachother.
 
-** [[file:articles/2017/electoral-reform-now.org][Electoral Reform Now!]]
-
-I try to show how unjust the First Past the Post system used to elect
-MPs in UK General Elections is.
-
-** [[file:articles/2017/blogging-with-org-mode.org][Blogging with Org Mode]]
-
-I describe how---and why---I changed from blogging using Markdown &
-Jekyll to using Org mode.
-
-** [[file:articles/2017/open-letter-to-anne-marie-mp.org][Open Letter to Anne Marie MP]]
-
-I ask how the Conservatives can say they are "working for everyone"
-whilst giving extra tax breaks and benefits to the 15% of top earners,
-and at the same time cutting benefits for the poor.
-
-** [[file:articles/2017/hydra-theme-switcher.org][Hydra Theme Switcher For Emacs]]
-
-I learnt how to quickly switch between all installed themes in Emacs.
-
-* 2016
-
-** [[file:articles/2016/how-i-blog-this-week.org][How I Blog (This Week)]]
-
-I share my Emacs & Org-mode setup for blogging with Jekyll.
-
-** [[file:articles/2016/berwick-academy-stem-talk.org][Berwick Academy STEM Talk]]
-
-I went to a local school and talked to prospective computer science
-students there about my education and career. This is a transcript of
-my talk, which was organised by STEMNET.
-
-** [[file:articles/2016/fizzbuzz.org][FizzBuzz]]
+* [[file:articles/2016/fizzbuzz.org][FizzBuzz]]
 
 Breakdown of my Tweetable FizzBuzz created using sed and xargs.
 
-** [[file:articles/2016/change-terminal-colour-ssh-os-x.org][Change Terminal background colour on OS X via ssh]]
-
-I show how to change Terminal.app colours automatically when logging
-into certain remote machines via SSH.
-
-** [[file:articles/2016/leafnode-nntp-os-x.org][Setting up Leafnode NNTP server on OS X]]
-
-I set up the Leafnode NNTP server on OS X, for use with Emacs and the
-Gnus newsreader.
-
-** [[file:articles/2016/overcoming-rsi.org][Overcoming RSI]]
+* [[file:articles/2016/overcoming-rsi.org][Overcoming RSI]]
 
 Early 2005 I encountered a bad bout of RSI. Prompted by a comment on
 the Lobsters forum, I thought I'd share my experience.
 
-** [[file:articles/2016/modsec-and-puppet.org][ModSecurity and Puppet Spelunking]]
+* [[file:articles/2016/modsec-and-puppet.org][ModSecurity and Puppet Spelunking]]
 
 In which I investigate how to configure =SecAuditLogParts= for
 ModSecurity with Puppet, and find I have to contribute a patch to make
 it possible.
 
-* 2015
-** [[file:articles/2015/response-to-haskell-lisp-philosophical-differences.org][Not so philosophically different after all?]]
-** [[file:articles/2015/benchmarking.org][A Lesson in Benchmarking]]
-** [[file:articles/2015/nuisance-calls.org][Nuisance Calls]]
-** [[file:articles/2015/tinkerbell.org][Tinker Bell (2008)]]
-** [[file:articles/2015/resolutions.org][2015 Resolutions]]
-* 2014
-** [[file:articles/2014/passwordless-registration-and-login.org][Passwordless registration and login]]
-** [[file:articles/2014/good-ideas.org][Good Ideas]]
-** [[file:articles/2014/optimising-http-cache-hit-rate.org][Optimising HTTP Cache Hit Rate]]
-** [[file:articles/2014/smartphone-addiction.org][Smartphone Addiction]]
-** [[file:articles/2014/progress.org][Resolutions Progress]]
-** [[file:articles/2014/toddlercalm.org][ToddlerCalm]]
-** [[file:articles/2014/eating-right.org][Losing weight by eating right]]
 ** [[file:articles/2014/spray-example.org][Spray Example]]
-** [[file:articles/2014/delighting-users-with-sbjson-4.org][Delighting your users with SBJson 4]]
-** [[file:articles/2014/learning-clojure.org][Learning Clojure by Solving Euler Problems]]
-** [[file:articles/2014/resolutions.org][Resolutions]]
-* 2013
-** [[file:articles/2013/consolidating-iphoto-libraries.org][Consolidating and de-duplicating iPhoto libraries]]
 ** [[file:articles/2013/spray-routing-error-handling.org][Spray Routing Error Handling]]
 ** [[file:articles/2013/scala-slick-postgresql-unit-tests.org][Scala, Slick & PostgreSQL Unit Tests]]
-** [[file:articles/2013/re-designing-for-readers.org][Re-designing for readers]]
 ** [[file:articles/2013/scalatest-with-akka.org][Using ScalaTest with Akka]]
 ** [[file:articles/2013/injecting-akka-testprobe.org][Injecting Akka's TestProbe in place of child actors]]
-** [[file:articles/2013/dairy-free-bread-pudding.org][Dairy-free bread and "butter" pudding]]
-** [[file:articles/2013/backing-up-photos-online.org][Backing Up Photos Online]]
-** [[file:articles/2013/what-now-for-sbjson.org][What now for SBJson?]]
-** [[file:articles/2013/real-custom-rank-keys.org][Real custom rank keys]]
-* 2010
-** [[file:articles/2010/little-brother.org][Little Brother]]
-* 2008
 ** [[file:articles/2008/resizable-grid-of-calayers.org][Creating a resizable grid of CALayers]]
-** [[file:articles/2008/saw-25-percent-faster.org][Saw 25% faster!]]
-** [[file:articles/2008/objective-c-syntax-sugar-wish-list.org][Objective-C syntax sugar wish list]]
-** [[file:articles/2008/objective-c-feature-request.org][Objective-C Feature Request]]
-** [[file:articles/2008/avenue-que.org][Avenue Que?]]
-** [[file:articles/2008/introducing-statistics-for-objective-c.org][Introducing Statistics for Objective-C]]
-* 2007
-** [[file:articles/2007/embedding-cocoa-frameworks.org][Embedding Cocoa Frameworks]]
-** [[file:articles/2007/gpl-vs-bsd-license.org][Goodbye GPL, hello BSD?]]
 ** [[file:articles/2007/game-tree-search.org][MiniMax and AlphaBeta Search]]
-** [[file:articles/2007/no-smoking.org][No Smoking]]
-** [[file:articles/2007/the-orient-express.org][The Orient Express]]
-** [[file:articles/2007/piping-to-sh.org][Piping to sh -]]
-** [[file:articles/2007/renaming-lots-of-files.org][Renaming lots of files]]
-** [[file:articles/2007/can-of-worms.org][A Can of Worms]]
-** [[file:articles/2007/well-done-is.org][Well done is]]
-** [[file:articles/2007/quiet-please.org][Quiet Please]]
-** [[file:articles/2007/citylink-is-teh-suck.org][CityLink is teh suck!]]
-** [[file:articles/2007/rice-instruction-craziness.org][Rice instruction craziness]]
-* 2006
-** [[file:articles/2006/abandon-all-hope-the-terrorists-and-retailers-have-won.org][Abandon all hope]]
-** [[file:articles/2006/bad-typesetting.org][Bad Typesetting]]
-** [[file:articles/2006/playing-at-the-edge-of-ai.org][Playing at the Edge of AI]]
 ** [[file:articles/2006/generating-bar-charts-with-sql.org][Generating Bar Charts with SQL]]
 ** [[file:articles/2006/a-lesson-in-testing.org][A lesson in testing]]
-** [[file:articles/2006/internet-on-the-south-pole.org][Internet on the South Pole]]
-** [[file:articles/2006/hippies.org][Hippies]]
 ** [[file:articles/2006/rise-of-the-machine.org][Rise of the Machine]]
-** [[file:articles/2006/in-sewer-ants.org][In-sewer Ants]]
 ** [[file:articles/2006/regular-expressions.org][Regular Expressions]]
-** [[file:articles/2006/connected.org][Connected!]]
-** [[file:articles/2006/moving-in.org][Moving in]]
-** [[file:articles/2006/moving-in-party.org][Moving-in Party]]
-** [[file:articles/2006/what-i-want-for-my-birthday.org][What I want for my Birthday]]
-** [[file:articles/2006/perpetual-mid-season.org][Perpetual mid-season]]
-** [[file:articles/2006/target-reached.org][Target Reached!]]
-** [[file:articles/2006/money-transfer.org][Money Transfer]]
-* 2005
-** [[file:articles/2005/new-headphones.org][New Headphones]]
-** [[file:articles/2005/blade-trinity.org][Blade Trinity]]
-** [[file:articles/2005/untraditional-refactoring-technique.org][Untraditional Refactoring Technique]]
-** [[file:articles/2005/connectivity-galore.org][Connectivity Galore]]
-** [[file:articles/2005/attacks-on-london.org][Attacks on London]]
-** [[file:articles/2005/test-driven-development.org][Test Driven Development]]
-* 2004
-** [[file:articles/2004/water-please.org][Can I have some Water please?]]
-** [[file:articles/2004/extreme-programming-explained.org][Extreme Programming Explained]]
-** [[file:articles/2004/down-oars.org][A fisherman puts down his oars]]
-** [[file:articles/2004/chip-and-pin.org][Chip And Pin]]
-** [[file:articles/2004/banking-trouble.org][Co-operative Banking Trouble]]
-* 2002
-** [[file:articles/2002/heinlein.org][Heinlein's list of skills]]
-** [[file:articles/2002/blade-2.org][Blade 2]]
-* 2001
-** [[file:articles/2001/dim-sum.org][First Dim Sum]]
