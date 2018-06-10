@@ -1,16 +1,18 @@
-#+title: Stig's Soap Box RSS Feed
+#+title: Stig's Soap Box
 
-* [[file:articles/2018/support-my-foss-work.org][How to Support my FOSS Work!]]
+* How to Support my FOSS Work!
   :PROPERTIES:
-  :ID:       29987677-96C6-4641-8F03-7194C230A41E
+  :RSS_PERMALINK: articles/2018/support-my-foss-work.html
+  :ID:       6223AC17-35A3-4BA2-90D0-D606ADDE3718
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
 
 I present four ways you can support me if you have (or continue to)
 benefit from my work on Free and Open Source Software.
 
-* [[file:articles/2017/printing-music.org][Printing Music (Through My Stereo!)]]
+* Printing Music (Through My Stereo!)
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/printing-music.html
   :ID:       23DAA3D8-C613-4053-89FB-CAFAA5A99D92
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -18,8 +20,9 @@ benefit from my work on Free and Open Source Software.
 I explain how I set up MPlayer as a printer driver so I could add a
 distributed print queue for music. (AKA a JukeBox.)
 
-* [[file:articles/2017/parking-in-berwick-upon-tweed.org][Open Letter to NCC about Parking in Berwick]]
+* Open Letter to NCC about Parking in Berwick
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/parking-in-berwick-upon-tweed.html
   :ID:       250ACA40-55BB-4776-AC17-6BBD8FAF680E
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -28,8 +31,9 @@ I complain about the unacceptable parking situation for commuters to
 Berwick-upon-Tweed and present a few suggestions for improvement that
 might help.
 
-* [[file:articles/2017/dns-cloudformation-importvalue.org][Updating DNS with output of another CloudFormation stack]]
+* Updating DNS with output of another CloudFormation stack
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/dns-cloudformation-importvalue.html
   :ID:       ABE4DBDD-E616-4007-AB8E-95B57401F3DE
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -38,8 +42,9 @@ I show the changes to my Sceptre config & CloudFormation template
 required to point DNS to the two CloudFront distributions I've
 created.
 
-* [[file:articles/2017/publishing-this-blog-to-s3.org][Publishing this blog to an S3 bucket]]
+* Publishing this blog to an S3 bucket
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/publishing-this-blog-to-s3.html
   :ID:       FFF59483-0878-47DE-9F8B-74C59DEA80C6
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -47,8 +52,9 @@ created.
 I show briefly the changes I need to make to publish this blog to S3
 rather than to GitHub.
 
-* [[file:articles/2017/s3-website-with-https-using-cloudformation.org][Creating S3 website with SSL using CloudFormation]]
+* Creating S3 website with SSL using CloudFormation
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/s3-website-with-https-using-cloudformation.html
   :ID:       A258B736-4812-419E-AB40-B6EDBC5E0B98
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -57,8 +63,9 @@ I show how to create an S3 bucket set up to serve a static website,
 and expose it over HTTPS via CloudFront, using the same SSL
 certificate we created in the previous post---all via CloudFormation.
 
-* [[file:articles/2017/ssl-enabled-s3-redirects-with-cloudformation.org][Adding SSL to S3 Redirect Bucket with CloudFormation]]
+* Adding SSL to S3 Redirect Bucket with CloudFormation
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/ssl-enabled-s3-redirects-with-cloudformation.html
   :ID:       C0C5DF2D-95E3-4BB5-8EFF-0A7ADE159B26
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -67,8 +74,9 @@ I show how to create an S3 bucket for redirecting web requests, put it
 behind a CloudFront distribution, and configured /this/ with an SSL
 certificate---all via CloudFormation.
 
-* [[file:articles/2017/route-53-cloudformation.org][Managing AWS Route 53 with CloudFormation]]
+* Managing AWS Route 53 with CloudFormation
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/route-53-cloudformation.html
   :ID:       01F5F070-94F2-4345-8638-9FB90076BFC4
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -76,8 +84,9 @@ certificate---all via CloudFormation.
 In which I delegate DNS from Gandi to AWS Route 53, and learn how to
 configure Route 53 with CloudFormation & Sceptre.
 
-* [[file:articles/2017/adding-ssl.org][Adding SSL to this Blog]]
+* Adding SSL to this Blog
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/adding-ssl.html
   :ID:       4384CD3C-072C-4470-96E2-2D673A2C12A8
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -86,16 +95,18 @@ I outline the steps I plan to take to add SSL to this blog, leveraging
 AWS Certificate Manager, CloudFront, S3 and Route 53. (And potentially
 CloudFormation.)
 
-* [[file:articles/2017/blogging-with-org-mode-update.org][Blogging with Org mode---update]]
+* Blogging with Org mode---update
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/blogging-with-org-mode-update.html
   :ID:       AC6DCFB0-68C9-4CF1-982A-9883F9BF25D5
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
 
 A short experience report about blogging with Org mode.
 
-* [[file:articles/2017/potter-coding-dojo.org][Potter Coding Dojo in Clojure]]
+* Potter Coding Dojo in Clojure
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/potter-coding-dojo.html
   :ID:       F177EC12-6F87-4684-8CEB-7384E7ABC2F6
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -103,8 +114,9 @@ A short experience report about blogging with Org mode.
 Detailing my trials and tribulations with the "Potter" coding dojo
 problem, with code examples in Clojure.
 
-* [[file:articles/2017/n-queens.org][N Queens in Clojure]]
+* N Queens in Clojure
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/n-queens.html
   :ID:       3F68C271-D81F-4174-B209-9CFD6D3B2D4A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -112,8 +124,9 @@ problem, with code examples in Clojure.
 Solving the problem of putting N Queens on an /N/ by /N/ chess board
 without them being able to threaten eachother.
 
-* [[file:articles/2017/electoral-reform-now.org][Electoral Reform Now!]]
+* Electoral Reform Now!
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/electoral-reform-now.html
   :ID:       7D70579C-408C-46A4-96B3-BC1889A48AB5
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -121,8 +134,9 @@ without them being able to threaten eachother.
 I try to show how unjust the First Past the Post system used to elect
 MPs in UK General Elections is.
 
-* [[file:articles/2017/blogging-with-org-mode.org][Blogging with Org Mode]]
+* Blogging with Org Mode
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/blogging-with-org-mode.html
   :ID:       0F3E81A7-4A9F-4EF9-9365-F367E40EE12B
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -130,8 +144,9 @@ MPs in UK General Elections is.
 I describe how---and why---I changed from blogging using Markdown &
 Jekyll to using Org mode.
 
-* [[file:articles/2017/open-letter-to-anne-marie-mp.org][Open Letter to Anne Marie MP]]
+* Open Letter to Anne Marie MP
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/open-letter-to-anne-marie-mp.html
   :ID:       3D6D9AE5-BCA3-4C0D-A7C8-0CED24CCFDA6
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -140,24 +155,27 @@ I ask how the Conservatives can say they are "working for everyone"
 whilst giving extra tax breaks and benefits to the 15% of top earners,
 and at the same time cutting benefits for the poor.
 
-* [[file:articles/2017/hydra-theme-switcher.org][Hydra Theme Switcher For Emacs]]
+* Hydra Theme Switcher For Emacs
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2017/hydra-theme-switcher.html
   :ID:       27EF1161-F3FC-4D2F-B85B-7FDBD1F09B60
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
 
 I learnt how to quickly switch between all installed themes in Emacs.
 
-* [[file:articles/2016/how-i-blog-this-week.org][How I Blog (This Week)]]
+* How I Blog (This Week)
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/how-i-blog-this-week.html
   :ID:       6A2AFE00-16CC-4CFB-A1AA-34B28DC883FD
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
 
 I share my Emacs & Org-mode setup for blogging with Jekyll.
 
-* [[file:articles/2016/berwick-academy-stem-talk.org][Berwick Academy STEM Talk]]
+* Berwick Academy STEM Talk
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/berwick-academy-stem-talk.html
   :ID:       B08A726B-EF5D-4E1F-8B4C-89C045EFB588
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -166,16 +184,18 @@ I went to a local school and talked to prospective computer science
 students there about my education and career. This is a transcript of
 my talk, which was organised by STEMNET.
 
-* [[file:articles/2016/fizzbuzz.org][FizzBuzz]]
+* FizzBuzz
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/fizzbuzz.html
   :ID:       86DDEF21-E7E0-430F-8318-654AAA576DFC
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
 
 Breakdown of my Tweetable FizzBuzz created using sed and xargs.
 
-* [[file:articles/2016/change-terminal-colour-ssh-os-x.org][Change Terminal background colour on OS X via ssh]]
+* Change Terminal background colour on OS X via ssh
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/change-terminal-colour-ssh-os-x.html
   :ID:       3D7B93B2-82C7-48DD-9B77-18F4A57C3615
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -183,8 +203,9 @@ Breakdown of my Tweetable FizzBuzz created using sed and xargs.
 I show how to change Terminal.app colours automatically when logging
 into certain remote machines via SSH.
 
-* [[file:articles/2016/leafnode-nntp-os-x.org][Setting up Leafnode NNTP server on OS X]]
+* Setting up Leafnode NNTP server on OS X
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/leafnode-nntp-os-x.html
   :ID:       B19EFF54-718F-4D40-9C30-712022293AAF
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -192,8 +213,9 @@ into certain remote machines via SSH.
 I set up the Leafnode NNTP server on OS X, for use with Emacs and the
 Gnus newsreader.
 
-* [[file:articles/2016/overcoming-rsi.org][Overcoming RSI]]
+* Overcoming RSI
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/overcoming-rsi.html
   :ID:       F443CABE-B2F1-415E-98F9-563B18B898E5
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -201,8 +223,9 @@ Gnus newsreader.
 Early 2005 I encountered a bad bout of RSI. Prompted by a comment on
 the Lobsters forum, I thought I'd share my experience.
 
-* [[file:articles/2016/modsec-and-puppet.org][ModSecurity and Puppet Spelunking]]
+* ModSecurity and Puppet Spelunking
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2016/modsec-and-puppet.html
   :ID:       9FE1792D-F070-4777-96CC-AB4A58B0B2B6
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
@@ -211,383 +234,459 @@ In which I investigate how to configure =SecAuditLogParts= for
 ModSecurity with Puppet, and find I have to contribute a patch to make
 it possible.
 
-* [[file:articles/2015/response-to-haskell-lisp-philosophical-differences.org][Not so philosophically different after all?]]
+* Not so philosophically different after all?
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2015/response-to-haskell-lisp-philosophical-differences.html
   :ID:       D05D7667-C168-426F-98AE-3ECFB8A7E0C7
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2015/benchmarking.org][A Lesson in Benchmarking]]
+* A Lesson in Benchmarking
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2015/benchmarking.html
   :ID:       F2506917-A5DD-4AB3-9E0F-8E0F923C70A1
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2015/nuisance-calls.org][Nuisance Calls]]
+* Nuisance Calls
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2015/nuisance-calls.html
   :ID:       7798CC65-1A97-4B62-87B6-B7CD97A030FA
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2015/tinkerbell.org][Tinker Bell (2008)]]
+* Tinker Bell (2008)
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2015/tinkerbell.html
   :ID:       91BAE2AB-BD01-4F33-9A46-8265D7FCBFD2
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2015/resolutions.org][2015 Resolutions]]
+* 2015 Resolutions
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2015/resolutions.html
   :ID:       516107CC-9A9D-4AEB-A454-9E48AF4BB495
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/passwordless-registration-and-login.org][Passwordless registration and login]]
+* Passwordless registration and login
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/passwordless-registration-and-login.html
   :ID:       3EB7669F-548E-4C57-B303-5D658B4A3E21
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/good-ideas.org][Good Ideas]]
+* Good Ideas
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/good-ideas.html
   :ID:       063B6C6D-C4BE-4657-ACDF-9B60693A53B3
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/optimising-http-cache-hit-rate.org][Optimising HTTP Cache Hit Rate]]
+* Optimising HTTP Cache Hit Rate
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/optimising-http-cache-hit-rate.html
   :ID:       BC8CEFFB-AC55-4016-A6C2-467F3D0F1C88
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/smartphone-addiction.org][Smartphone Addiction]]
+* Smartphone Addiction
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/smartphone-addiction.html
   :ID:       76F0B110-2CD5-4849-A5F1-7FCEE086D5AE
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/progress.org][Resolutions Progress]]
+* Resolutions Progress
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/progress.html
   :ID:       0641FC5E-049B-41F3-8420-84C51CB19155
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/toddlercalm.org][ToddlerCalm]]
+* ToddlerCalm
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/toddlercalm.html
   :ID:       17EAF98C-B68A-4D7C-95A2-9B6653F35250
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/eating-right.org][Losing weight by eating right]]
+* Losing weight by eating right
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/eating-right.html
   :ID:       F232C7D6-C5F6-47A1-94F9-0073BBC5FD0C
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/spray-example.org][Spray Example]]
+* Spray Example
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/spray-example.html
   :ID:       3AD18C4F-EA9D-4C4B-88E6-64CB6A97CC85
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/delighting-users-with-sbjson-4.org][Delighting your users with SBJson 4]]
+* Delighting your users with SBJson 4
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/delighting-users-with-sbjson-4.html
   :ID:       6F0A17B7-A1D2-4BCC-A247-EBC350B506CC
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/learning-clojure.org][Learning Clojure by Solving Euler Problems]]
+* Learning Clojure by Solving Euler Problems
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/learning-clojure.html
   :ID:       B7F8A4C4-4EF7-46CE-AA0F-2AA1D0FB9229
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2014/resolutions.org][Resolutions]]
+* Resolutions
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2014/resolutions.html
   :ID:       FE3D3D33-529A-4791-9295-F372B2804038
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/consolidating-iphoto-libraries.org][Consolidating and de-duplicating iPhoto libraries]]
+* Consolidating and de-duplicating iPhoto libraries
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/consolidating-iphoto-libraries.html
   :ID:       60787678-AB9E-42C4-9CCF-2B5B30C3EA45
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/spray-routing-error-handling.org][Spray Routing Error Handling]]
+* Spray Routing Error Handling
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/spray-routing-error-handling.html
   :ID:       C42AEC4E-0C44-4675-B59C-2AA73490C8A5
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/scala-slick-postgresql-unit-tests.org][Scala, Slick & PostgreSQL Unit Tests]]
+* Scala, Slick & PostgreSQL Unit Tests
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/scala-slick-postgresql-unit-tests.html
   :ID:       D03C730B-4AEC-4803-9C88-C3F68D576076
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/re-designing-for-readers.org][Re-designing for readers]]
+* Re-designing for readers
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/re-designing-for-readers.html
   :ID:       3A681F05-0754-467F-8979-BCFBB5943141
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/scalatest-with-akka.org][Using ScalaTest with Akka]]
+* Using ScalaTest with Akka
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/scalatest-with-akka.html
   :ID:       9B9957FC-4157-4324-B7B1-FDD9C1E13506
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/injecting-akka-testprobe.org][Injecting Akka's TestProbe in place of child actors]]
+* Injecting Akka's TestProbe in place of child actors
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/injecting-akka-testprobe.html
   :ID:       9956951F-EF55-4383-91F5-EA3123A7CACD
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/dairy-free-bread-pudding.org][Dairy-free bread and "butter" pudding]]
+* Dairy-free bread and "butter" pudding
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/dairy-free-bread-pudding.html
   :ID:       AF776EC7-2170-423B-B1A5-D8B79845FE44
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/backing-up-photos-online.org][Backing Up Photos Online]]
+* Backing Up Photos Online
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/backing-up-photos-online.html
   :ID:       EC84204E-D7BF-43A3-B4D0-AE49837DD927
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/what-now-for-sbjson.org][What now for SBJson?]]
+* What now for SBJson?
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/what-now-for-sbjson.html
   :ID:       85F697BE-26AC-4F0E-BDE5-E5137CEDAE6E
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2013/real-custom-rank-keys.org][Real custom rank keys]]
+* Real custom rank keys
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2013/real-custom-rank-keys.html
   :ID:       FB0C2E71-FE6C-4402-B081-C6421FBBA07F
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2010/little-brother.org][Little Brother]]
+* Little Brother
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2010/little-brother.html
   :ID:       A87289B2-50E5-4E43-8BF6-1318B23D4FAC
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2008/resizable-grid-of-calayers.org][Creating a resizable grid of CALayers]]
+* Creating a resizable grid of CALayers
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2008/resizable-grid-of-calayers.html
   :ID:       3810BA76-2EC8-4AA8-B813-A48D0C1F79A2
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2008/saw-25-percent-faster.org][Saw 25% faster!]]
+* Saw 25% faster!
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2008/saw-25-percent-faster.html
   :ID:       9220CC6A-2CF3-47E9-8F65-2A8768CAE1F4
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2008/objective-c-syntax-sugar-wish-list.org][Objective-C syntax sugar wish list]]
+* Objective-C syntax sugar wish list
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2008/objective-c-syntax-sugar-wish-list.html
   :ID:       58110298-DE15-4B38-823C-F31CECCECBDB
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2008/objective-c-feature-request.org][Objective-C Feature Request]]
+* Objective-C Feature Request
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2008/objective-c-feature-request.html
   :ID:       1624F6A6-4B82-4C80-907D-225406531A66
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2008/avenue-que.org][Avenue Que?]]
+* Avenue Que?
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2008/avenue-que.html
   :ID:       71B4BD1E-524B-4648-94B7-80D00497E932
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2008/introducing-statistics-for-objective-c.org][Introducing Statistics for Objective-C]]
+* Introducing Statistics for Objective-C
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2008/introducing-statistics-for-objective-c.html
   :ID:       1EA94EB7-9508-485F-8F60-42D6004B1658
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/embedding-cocoa-frameworks.org][Embedding Cocoa Frameworks]]
+* Embedding Cocoa Frameworks
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/embedding-cocoa-frameworks.html
   :ID:       86E2A984-A171-415B-87DF-BB62EA8D1F57
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/gpl-vs-bsd-license.org][Goodbye GPL, hello BSD?]]
+* Goodbye GPL, hello BSD?
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/gpl-vs-bsd-license.html
   :ID:       E12BD300-F4ED-44EA-B9E8-9CABB8DAC495
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/game-tree-search.org][MiniMax and AlphaBeta Search]]
+* MiniMax and AlphaBeta Search
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/game-tree-search.html
   :ID:       5DFEC6EF-6809-44AF-B822-8AF258AF9E62
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/no-smoking.org][No Smoking]]
+* No Smoking
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/no-smoking.html
   :ID:       5ED57BB1-DE57-4CDB-8BC1-F4B72B442F0A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/the-orient-express.org][The Orient Express]]
+* The Orient Express
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/the-orient-express.html
   :ID:       88345EE8-51EE-46E9-BB5F-737B96C1A9D4
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/piping-to-sh.org][Piping to sh -]]
+* Piping to sh -
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/piping-to-sh.html
   :ID:       3F15E2F2-CA0B-4D7D-8904-64ACD285F775
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/renaming-lots-of-files.org][Renaming lots of files]]
+* Renaming lots of files
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/renaming-lots-of-files.html
   :ID:       65CAF789-91C4-4F07-A21B-BCD6EA3B969E
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/can-of-worms.org][A Can of Worms]]
+* A Can of Worms
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/can-of-worms.html
   :ID:       ADC28E93-B507-4C39-8D58-536542E8F179
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/well-done-is.org][Well done is]]
+* Well done is
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/well-done-is.html
   :ID:       5E85F929-05DD-44D9-B115-5D3CF135CBDB
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/quiet-please.org][Quiet Please]]
+* Quiet Please
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/quiet-please.html
   :ID:       88DEC349-50C2-40AB-B84C-70524C010B21
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/citylink-is-teh-suck.org][CityLink is teh suck!]]
+* CityLink is teh suck!
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/citylink-is-teh-suck.html
   :ID:       884DF180-E542-4130-871F-0F912AFC6CAA
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2007/rice-instruction-craziness.org][Rice instruction craziness]]
+* Rice instruction craziness
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2007/rice-instruction-craziness.html
   :ID:       EF3602A7-AB77-4B16-A537-B4DFBCEC8437
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/abandon-all-hope-the-terrorists-and-retailers-have-won.org][Abandon all hope]]
+* Abandon all hope
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/abandon-all-hope-the-terrorists-and-retailers-have-won.html
   :ID:       553A3AA4-A75F-421B-BC05-D68184C2346A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/bad-typesetting.org][Bad Typesetting]]
+* Bad Typesetting
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/bad-typesetting.html
   :ID:       F0E013AC-283F-4687-986C-AA75485D4E94
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/playing-at-the-edge-of-ai.org][Playing at the Edge of AI]]
+* Playing at the Edge of AI
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/playing-at-the-edge-of-ai.html
   :ID:       87AAF3D9-E894-403A-A020-DB17960AC362
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/generating-bar-charts-with-sql.org][Generating Bar Charts with SQL]]
+* Generating Bar Charts with SQL
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/generating-bar-charts-with-sql.html
   :ID:       1C0535C1-3E3B-4552-8B95-4486DB9E5285
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/a-lesson-in-testing.org][A lesson in testing]]
+* A lesson in testing
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/a-lesson-in-testing.html
   :ID:       1BB717E9-C533-4D8E-9FA3-EDB65C27D787
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/internet-on-the-south-pole.org][Internet on the South Pole]]
+* Internet on the South Pole
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/internet-on-the-south-pole.html
   :ID:       51704AC2-1946-4032-ADF3-FAE213F8D1A5
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/hippies.org][Hippies]]
+* Hippies
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/hippies.html
   :ID:       1E1D9C27-D158-49D8-A7C8-627AEC354F1A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/rise-of-the-machine.org][Rise of the Machine]]
+* Rise of the Machine
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/rise-of-the-machine.html
   :ID:       25BE3F49-7477-4707-895F-84B418B0A442
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/in-sewer-ants.org][In-sewer Ants]]
+* In-sewer Ants
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/in-sewer-ants.html
   :ID:       C2E76106-F690-48D5-B6FD-5A0BB8F0850A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/regular-expressions.org][Regular Expressions]]
+* Regular Expressions
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/regular-expressions.html
   :ID:       D7A70034-2020-49D5-911A-3179B8C99AF6
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/connected.org][Connected!]]
+* Connected!
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/connected.html
   :ID:       B0A7BA90-5202-4A28-96BD-0AE20CCDAE0A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/moving-in.org][Moving in]]
+* Moving in
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/moving-in.html
   :ID:       C17926FD-3508-47D8-B269-F4B23D80797E
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/moving-in-party.org][Moving-in Party]]
+* Moving-in Party
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/moving-in-party.html
   :ID:       53F2BDD8-1C28-418D-832A-0EE32DDE2350
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/what-i-want-for-my-birthday.org][What I want for my Birthday]]
+* What I want for my Birthday
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/what-i-want-for-my-birthday.html
   :ID:       29EB96E9-D238-4B12-9A5D-1835372A8870
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/perpetual-mid-season.org][Perpetual mid-season]]
+* Perpetual mid-season
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/perpetual-mid-season.html
   :ID:       736BE71B-D79D-4AFE-A965-A9BE202A8EDF
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/target-reached.org][Target Reached!]]
+* Target Reached!
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/target-reached.html
   :ID:       2144D6DC-A181-42FC-B21F-12E9A6728BB1
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2006/money-transfer.org][Money Transfer]]
+* Money Transfer
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2006/money-transfer.html
   :ID:       0345ED51-496D-4707-9B99-FC11F07DC3D3
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2005/new-headphones.org][New Headphones]]
+* New Headphones
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2005/new-headphones.html
   :ID:       45900226-A3D2-4B7E-B2EF-4175CA2DA171
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2005/blade-trinity.org][Blade Trinity]]
+* Blade Trinity
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2005/blade-trinity.html
   :ID:       B73F3773-FC8E-4BED-A906-38DE4D70F81C
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2005/untraditional-refactoring-technique.org][Untraditional Refactoring Technique]]
+* Untraditional Refactoring Technique
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2005/untraditional-refactoring-technique.html
   :ID:       700018FE-7FE3-4558-A34D-DF5AAE4E81DB
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2005/connectivity-galore.org][Connectivity Galore]]
+* Connectivity Galore
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2005/connectivity-galore.html
   :ID:       362793EF-32F7-4F03-BF0D-1E0BD258505A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2005/attacks-on-london.org][Attacks on London]]
+* Attacks on London
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2005/attacks-on-london.html
   :ID:       1EA54C21-40A6-4478-9350-13D7F383216A
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2005/test-driven-development.org][Test Driven Development]]
+* Test Driven Development
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2005/test-driven-development.html
   :ID:       497209DC-ECDA-4ACA-B2E0-201347ADDBFB
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2004/water-please.org][Can I have some Water please?]]
+* Can I have some Water please?
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2004/water-please.html
   :ID:       6B9CC89C-F0A4-403B-AF37-83FDFC6EAF15
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2004/extreme-programming-explained.org][Extreme Programming Explained]]
+* Extreme Programming Explained
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2004/extreme-programming-explained.html
   :ID:       F7E88472-4061-4F68-A62E-5D301CD72A53
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2004/down-oars.org][A fisherman puts down his oars]]
+* A fisherman puts down his oars
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2004/down-oars.html
   :ID:       89B7478A-5495-4FA6-B31D-AD5452E536B8
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2004/chip-and-pin.org][Chip And Pin]]
+* Chip And Pin
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2004/chip-and-pin.html
   :ID:       54E329C2-529C-46BA-8A16-CDA250FCEBCA
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2004/banking-trouble.org][Co-operative Banking Trouble]]
+* Co-operative Banking Trouble
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2004/banking-trouble.html
   :ID:       83702324-4622-4AD3-BD63-C584388A4B88
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2002/heinlein.org][Heinlein's list of skills]]
+* Heinlein's list of skills
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2002/heinlein.html
   :ID:       026C5DD5-72A7-41CB-B735-DEF16138CCCD
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2002/blade-2.org][Blade 2]]
+* Blade 2
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2002/blade-2.html
   :ID:       0FF76C2A-5DB7-4738-9116-154DE048C13F
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
-* [[file:articles/2001/dim-sum.org][First Dim Sum]]
+* First Dim Sum
   :PROPERTIES:
+  :RSS_PERMALINK: articles/2001/dim-sum.html
   :ID:       F6B0A314-EBCA-429B-88CD-07F8EBDCE30E
   :PUBDATE:  <2018-06-10 Sun 10:06>
   :END:
