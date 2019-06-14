@@ -134,3 +134,5 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((ditaa . t))))
+
+(message "Installed all packages")
