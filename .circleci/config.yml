@@ -7,7 +7,7 @@ executors:
   emacs26:
     working_directory: ~/blog
     docker:
-      - image: silex/emacs:26.2-dev
+      - image: silex/emacs:26.2
   python3:
     docker:
       - image: circleci/python:3.7
