@@ -23,7 +23,11 @@ jobs:
             - v3-org-master
       - run:
           name: Publish Blog
-          command: emacs --batch --load .circleci/config.el --funcall org-publish-all
+          command: >
+            emacs --batch
+                  --load .circleci/deps.el
+                  --load .circleci/config.el
+                  --funcall org-publish-all
       - store_artifacts:
           path: ~/public_html
       - save_cache:
