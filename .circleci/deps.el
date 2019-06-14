@@ -8,13 +8,6 @@
 
 (require 'use-package)
 
-(use-package htmlize :ensure t)
-
-(use-package clojure-mode :ensure t)
-(use-package clojure-mode-extra-font-locking :ensure t)
-
-(use-package scala-mode :ensure t)
-
 (use-package org
   :ensure org-plus-contrib
   :config
@@ -22,4 +15,9 @@
    'org-babel-load-languages
    '((ditaa . t))))
 
-(message "Installed all packages")
+(use-package htmlize :ensure t)
+
+(use-package clojure-mode :ensure t)
+(use-package clojure-mode-extra-font-locking :ensure t)
+
+(use-package scala-mode :ensure t)
