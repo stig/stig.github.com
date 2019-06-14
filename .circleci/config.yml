@@ -19,15 +19,15 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-org-{{ .Branch }}
-            - v2-org-master
+            - v3-org-{{ .Branch }}
+            - v3-org-master
       - run:
           name: Publish Blog
           command: emacs --batch --load .circleci/config.el --funcall org-publish-all
       - store_artifacts:
           path: ~/public_html
       - save_cache:
-          key: v2-org-{{ .Branch }}-{{ .Revision }}
+          key: v3-org-{{ .Branch }}-{{ .Revision }}
           paths:
             - ~/.emacs.d
       - persist_to_workspace:
