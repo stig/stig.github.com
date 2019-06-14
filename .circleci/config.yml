@@ -19,8 +19,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v4-org-{{ .Branch }}
-            - v4-org-master
+            - v5-org-{{ .Branch }}
+            - v5-org-master
       - run:
           name: Publish Blog
           command: >
@@ -31,7 +31,7 @@ jobs:
       - store_artifacts:
           path: ~/public_html
       - save_cache:
-          key: v4-org-{{ .Branch }}-{{ .Revision }}
+          key: v5-org-{{ .Branch }}-{{ .Revision }}
           paths:
             - ~/.emacs.d
       - persist_to_workspace:
