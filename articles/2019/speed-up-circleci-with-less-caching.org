@@ -9,29 +9,25 @@ CircleCI workflow from 15 minutes to under 4 minutes.
 
 My employer use CircleCI to run tests on every pull request (PR) for
 our applications. Three months ago these tests for one such Python
-Django application's PR workflow took over 15 minutes to run on
-CircleCI. One of my team's OKRs[fn::[[http://objectives-key-results.com/][Objectives and Key Results]].] was
-to reduce the build/test feedback cycle for PRs to under 10 minutes.
-With a bit of out-of-the-box thinking we managed to get the full PR
-cycle for this project down to under 4 minutes.
+Django application's PR workflow took over 15 minutes[fn::Down from /40
+minutes/ a year or so ago] to run on CircleCI. One of my team's
+OKRs[fn::[[http://objectives-key-results.com/][Objectives and Key Results]].] was to reduce the build/test
+feedback cycle for PRs to under 10 minutes. With a bit of
+out-of-the-box thinking we managed to get the full PR cycle for this
+project down to under 4 minutes.
 
 We deploy the application in two different configurations, for two
 independent markets: EU and US[fn::These deployments do not
 interact.]. To be safe we run the full test suite for each
-configuration, skipping the tests we know are unapplicable for each
-profile[fn::About 10% of the total.]. Partly for this reason we had a
-common =build= job to create a common Docker image to run tests inside.
-This job took a while to run, and tests would even start running
-before it finished. More on that later.
+configuration, for each skipping only the tests we know are not
+applicable for that profile[fn::About 10% of the total.].
 
 Picture [[march]] shows a typical PR workflow in March 2019. It wasn't
 uncommon for it to take over 15 minutes, though they sometimes ran a
 bit faster.
 
-@@html:<div class="row"><div class="column">@@
-
 #+name: march
-#+caption: CircleCI PR workflow March 2019 (15m 29s)
+#+caption: March Workflow (15m 29s)
 [[file:speed-up-circleci/wf-march.png]]
 # https://circleci.com/workflow-run/8e8e56da-f6ab-45f6-a36b-7ee8419131fa
 
@@ -39,36 +35,66 @@ The =code_checks_and_build_docs= job ran lots of different steps for
 =flake8=, =shellcheck=, =gjslint=, =isort= etc. The problem was that if any
 one of these failed, the rest would not run. It also wasn't always
 easy to find out /which/ step was failing, and we had trawl through lots
-of build output to find out. Finally, we had to wait until the last
-had run to find out if they were all successful. By splitting it into
-separate jobs they can run concurrently, addressing all these
-shortcomings. Additionally, we realised that they actually didn't need
-to wait for the =build= job to finish.
+of build output to find out.
+Finally, we had to wait until the last had run to find out if they
+were all successful.
 
-Picture [[april]] shows the resulting workflow. The total time has not
-improved by much yet, but we get more useful information much sooner.
-The slowest of the new jobs now finish after about two minutes, before
-the build job even finishes.
-
-@@html:</div><div class="column">@@
+We split it into separate jobs they can run concurrently, addressing
+all these shortcomings. Doing so we realised that none of them needed
+to wait for the =build= job to finish. Picture [[april]] shows the resulting
+workflow. The /total/ time has not improved[fn::It's a little improved,
+but I think that was down to being lucky with cache when installing
+dependencies.], but we get more useful information much sooner. The
+slowest of the new jobs now finish after about two minutes, before the
+build job even finishes.
 
 #+name: april
-#+caption: CircleCI PR workflow April 2019 (13m 24s)
-[[file:speed-up-circleci/wf-april.png]]
+#+caption: April Workflow (13m 24s)
+file:speed-up-circleci/wf-april.png
 # https://circleci.com/workflow-run/f54145e7-1cbd-415d-90c0-ce7047bdcfbe
 
-New we wanted to address the total time taken to run the tests.
-Because we run tests separately for two profiles we had a common =build=
-job to create a common Docker image to run tests inside, among other
-things. This job took a while to run, and tests would even start
-running before it finished.
+Next we wanted to reduce the total time to run the PR workflow to
+under 10 minutes. The setup using a shared =build= job was one of the
+key blockers for this. It turns out our attempts to reduce
+duplication---by building & saving a base docker image we would later
+use to run the tests in the =build= job, as well as /restoring/ this
+docker image in the two =test_lp{eu,usa}= jobs---was more time consuming
+than we had expected:
 
+- We use [[https://circleci.com/docs/2.0/docker-layer-caching/][Docker Layer Caching (DLC)]] on PR branches[fn::On the main
+  branch we disable the DLC, so building the image takes a bit longer
+  here.], so if your PR didn't change runtime dependencies building
+  the docker image was usually pretty fast[fn::In our /deploy/ workflow
+  (not discussed in this post) we deploy this image on
+  ElasticBeanstalk, so we omitted test dependencies.].
 
-@@html:</div><div class="column">@@
+- However, a =docker save= to a file on disk took around 30 seconds, and
+  because the resulting file is rather big [[https://circleci.com/docs/2.0/configuration-reference/#persist_to_workspace][persisting it to the
+  workspace]] for later jobs added another minute.
+
+- The =test_lp{usa,eu}= jobs had to [[https://circleci.com/docs/2.0/configuration-reference/#attach_workspace][attach the workspace]] and load our
+  base image, adding 30 seconds.
+
+- These test jobs also mimiced the way most local devs work, manually
+  started up dependencies (Redis, Cassandra, and PostgreSQL) with
+  =docker-compose=. This required us to use the [[https://circleci.com/docs/2.0/executor-types/][machine executor]], which
+  added about 30-60 second startup overhead compared to the docker
+  executors.
+
+- Because the base image from the =build= job contained only runtime
+  dependencies, we had to build a /test/ docker image, extending the
+  base to add dependencies for testing. (Another 70-ish seconds.)
+
+- Finally, running the tests took about 6 minutes 30 seconds.
+
+We attacked this problem from multiple angles, and from figure [[june]]
+you can see our current workflow's /total/ run time is now under 4
+minutes. Our tests now usually /finish/ in less time than the old
+workflow spent /preparing to start/ running our tests!
 
 #+name: june
-#+caption: CircleCI PR workflow June 2019 (3m 48s)
-[[file:speed-up-circleci/wf-june.png]]
+#+caption: June Workflow (3m 48s)
+file:speed-up-circleci/wf-june.png
 # https://circleci.com/workflow-run/0163111c-a34a-4bc5-9a1c-34ed32210bc5
 
-@@html:</div></div>@@
+How did we achive this? 
