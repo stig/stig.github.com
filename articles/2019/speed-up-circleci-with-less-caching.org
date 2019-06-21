@@ -97,4 +97,20 @@ workflow spent /preparing to start/ running our tests!
 file:speed-up-circleci/wf-june.png
 # https://circleci.com/workflow-run/0163111c-a34a-4bc5-9a1c-34ed32210bc5
 
-How did we achive this? 
+* TODO How did we achive this?
+  :PROPERTIES:
+  :ID:       ECC6A3E9-8B91-4CF3-84BB-5040CFDC0BE4
+  :END:
+
+TL;DR:
+- Replaced docker-compose with CircleCI's native service containers
+- Ran tests in parallel across 3 CPUs (using the [[https://circleci.com/docs/2.0/configuration-reference/#resource_class][medium+
+  =resource_class=]], as the default resources only give you 2 CPUs)
+- Ran tests against an [[https://circleci.com/docs/2.0/databases/][in-memory PostgreSQL db image]]
+- Skipped creating separate build & test images for running tests;
+  instead we install both runtime and test dependencies into the main
+  container, and run tests from there. Yes, this mean we do it twice -
+  but it takes a lot less time than all the saving to and restoring
+  from workspace we did before!
+- Cache pip downloads, to create virtualenvs faster. We didn't have
+  access to this shared cache when building docker images.
