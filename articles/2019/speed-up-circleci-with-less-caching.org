@@ -16,6 +16,8 @@ feedback cycle for PRs to under 10 minutes. With a bit of
 out-of-the-box thinking we managed to get the full PR suite for this
 project down to under 4 minutes.
 
+#+toc: headlines 1
+
 Picture [[march]] shows a typical PR workflow in March 2019[fn::We deploy
 the application in two different configurations, for two independent
 markets: EU and US. These deployments do not interact. To be safe we
