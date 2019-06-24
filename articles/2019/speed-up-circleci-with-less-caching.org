@@ -65,12 +65,11 @@ though it sometimes ran a bit faster.
   this docker image in the two =test_lp{eu,usa}= jobs---was more time
   consuming than we had expected:
 
-  - We use [[https://circleci.com/docs/2.0/docker-layer-caching/][Docker Layer Caching (DLC)]] on PR branches[fn::On the main
-    branch we disable the DLC, so building the image takes a bit
-    longer here.], so if your PR didn't change runtime dependencies
-    building the docker image was usually pretty fast[fn::In our
-    /deploy/ workflow (not discussed in this post) we deploy this image
-    on ElasticBeanstalk, so we omitted test dependencies.].
+  - We use [[https://circleci.com/docs/2.0/docker-layer-caching/][Docker Layer Caching (DLC)]] on PR branches, so if your PR
+    didn't change runtime dependencies building the docker image was
+    usually pretty fast. In our deploy workflow (not discussed here)
+    we run a container of this image on ElasticBeanstalk, so we don't
+    add test dependencies to it.
 
   - However, a =docker save= to a file on disk took around 30 seconds,
     and because the resulting file is rather big [[https://circleci.com/docs/2.0/configuration-reference/#persist_to_workspace][persisting it to the
