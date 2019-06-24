@@ -13,18 +13,16 @@ Django application's PR workflow took over 15 minutes[fn::Down from /40
 minutes/ a year or so ago] to run on CircleCI. One of my team's
 OKRs[fn::[[http://objectives-key-results.com/][Objectives and Key Results]].] was to reduce the build/test
 feedback cycle for PRs to under 10 minutes. With a bit of
-out-of-the-box thinking we managed to get the full PR cycle for this
+out-of-the-box thinking we managed to get the full PR suite for this
 project down to under 4 minutes.
 
-We deploy the application in two different configurations, for two
-independent markets: EU and US[fn::These deployments do not
-interact.]. To be safe we run the full test suite for each
-configuration, for each skipping only the tests we know are not
-applicable for that profile[fn::About 10% of the total.].
-
-Picture [[march]] shows a typical PR workflow in March 2019. It wasn't
-uncommon for it to take over 15 minutes, though they sometimes ran a
-bit faster.
+Picture [[march]] shows a typical PR workflow in March 2019[fn::We deploy
+the application in two different configurations, for two independent
+markets: EU and US. These deployments do not interact. To be safe we
+run the full test suite for each configuration, for each skipping only
+the tests we know are not applicable for that profile, about 10% of
+the total.]. It wasn't uncommon for it to take over 15 minutes,
+though it sometimes ran a bit faster.
 
 #+name: march
 #+caption: March Workflow (15m 29s)
