@@ -85,13 +85,6 @@ post discusses how.
   considered this the core "test API", and our Dockerfiles used tox
   internally. This would be key to the solution.
 
-  #+name: june
-  #+caption: June Workflow (3m 48s)
-  file:speed-up-circleci/wf-june.png
-  # https://circleci.com/workflow-run/0163111c-a34a-4bc5-9a1c-34ed32210bc5
-
-* How did we achive this?
-
   In a CI context you want to run all the tests in a freshly created
   environment with all the latest dependencies. Locally you won't
   typically create a new virtualenv and install dependencies anew
@@ -136,26 +129,30 @@ post discusses how.
   Cassandra integration[fn::I then tried using CircleCI's [[https://circleci.com/docs/2.0/parallelism-faster-jobs/#splitting-test-files][test
   splitting]] instead. This showed promise, but it had problems: it was
   difficult to achive an even split of the test files, since Django's
-  test runner only accepts test classes. It was also more expensive,
-  since we used more containers. However, it prompted one of my
-  colleagues to take a hard look at /why/ the tests failed when running
-  in parallel using Django's native method.]. Handily a colleague was
-  able to fix the problem. After a bit of trial and error we settled
-  on running the tests in parallel across 3 CPUs. The entire PR
-  workflow (Figure [[june]]) now as a rule completes in under four
-  minutes---sometimes closer to three. Less time than the old workflow
-  spent /preparing/ to start running the tests!
+  test runner only accepts test module names. However, it prompted one
+  of my colleagues to take a hard look at /why/ the tests failed when
+  running in parallel using Django's native method.]. Handily a
+  colleague was able to fix the problem. After a bit of trial and
+  error we settled on running the tests in parallel across 3 CPUs. The
+  entire PR workflow (Figure [[june]]) now as a rule completes in under
+  four minutes---sometimes closer to three. Less time than the old
+  workflow spent /preparing/ to start running the tests!
+
+  #+name: june
+  #+caption: June Workflow (3m 48s)
+  file:speed-up-circleci/wf-june.png
+  # https://circleci.com/workflow-run/0163111c-a34a-4bc5-9a1c-34ed32210bc5
 
 ** Upgrading to the CircleCI Performance plan for 3+ CPUs executors
 
-   By default CircleCI gives you only 2 CPUs, but by upgrading to their
-   new [[https://circleci.com/pricing/usage/][Performance Plan]] we were able to specify different [[https://circleci.com/docs/2.0/configuration-reference/#resource_class][resource
-   classes]] for our jobs. This plan even saves us about one third off
-   our monthly CircleCI bill! How? We hate queueing and on the old plan
-   paid CircleCI for many containers. Most of our engineers are
-   primarily based in one region, and all the containers were idle at
-   night and all weekend. Paying for what we /use/ makes so much more
-   sense!
+   By default CircleCI gives you only 2 CPUs, but by upgrading to
+   their new [[https://circleci.com/pricing/usage/][Performance Plan]] we were able to specify different
+   [[https://circleci.com/docs/2.0/configuration-reference/#resource_class][resource classes]] for our jobs. This plan even saves us about one
+   third off our monthly CircleCI bill! How? We hate queueing and on
+   the old plan paid CircleCI for many containers. Most of our
+   engineers are primarily based in one region, and all the containers
+   were idle at night and all weekend. Paying for what we /use/ makes so
+   much more sense!
 
 
 
