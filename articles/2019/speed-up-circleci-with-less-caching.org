@@ -10,7 +10,7 @@ CircleCI workflow from 15 minutes to under 4 minutes.
 My employer use CircleCI to run tests on every pull request (PR) for
 our applications. Three months ago these tests for one such Python
 Django application's PR workflow took over 15 minutes[fn::Down from /40
-minutes/ a year or so ago] to run on CircleCI. One of my team's
+minutes/ a year or so ago.] to run on CircleCI. One of my team's
 OKRs[fn::[[http://objectives-key-results.com/][Objectives and Key Results]].] was to reduce the build/test
 feedback cycle for PRs to under 10 minutes. With a bit of
 out-of-the-box thinking we managed to get the full PR suite for this
