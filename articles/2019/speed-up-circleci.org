@@ -22,16 +22,14 @@ virtuous cycle.
   The =build= job creates a Docker image, containing only runtime
   dependencies[fn::We don't want to add test dependencies to the base
   image, as in our deploy jobs (not discussed here) we deploy this on
-  ElasticBeanstalk.]. It dumps this to a file with =docker save= that it
-  persists in a workspace[fn::A workspace is a workflows-aware storage
-  mechanism. It stores data unique to the job, that downstream jobs
-  can use.]. The two tests jobs[fn::We run two separate test jobs
-  because we deploy this application in two separate configurations
-  with different feature sets. Each profile runs all the tests, except
-  those only applicable to the other profile. (About 10% for each.)]
-  attaches the workspace, restores the base image and extends this to
+  ElasticBeanstalk.]. It dumps this to a file with =docker save=, and
+  persists it in the workspace. The two tests jobs[fn::We deploy this
+  application in two separate configurations with different feature
+  sets. Each profile runs all the tests, except a small
+  portion---about 10%---only applicable to the other profile.]
+  restores the base image from the workspace. They build on this to
   create an image with all the extra modules required to run the
-  tests, starts dependencies, and runs the tests.
+  tests. They then start dependencies, and runs the tests.
 
   #+name: april
   #+caption: Starting Workflow (13m 24s)
