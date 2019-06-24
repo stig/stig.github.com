@@ -1,5 +1,5 @@
 #+setupfile: ../../lvl-2.org
-#+title: Speeding up CircleCI tests for a Python project by caching less and doing more things in parallel
+#+title: Speeding up CircleCI tests for a Python Django project
 #+begin_abstract
 I show how we reduced the runtime of a Python & Django application's
 CircleCI workflow from 15 minutes to under 4 minutes.
