@@ -1,20 +1,21 @@
 #+setupfile: ../../lvl-2.org
 #+title: Speeding up CircleCI tests for a Python Django project
 #+begin_abstract
-I show how we reduced the runtime of a Python & Django application's
-CircleCI workflow from 15 minutes to under 4 minutes.
+I discuss how we reduced the time to run one of my employer's Django
+application CircleCI test suites from about 13 minutes to under 4
+minutes.
 #+end_abstract
 #+category: Python
 #+category: CircleCI
 
-My employer use CircleCI to run tests on every pull request (PR) for
-our applications. Three months ago these tests for one such Python
-Django application's PR workflow took over 15 minutes[fn::Down from /40
-minutes/ a year or so ago.] to run on CircleCI. One of my team's
-OKRs[fn::[[http://objectives-key-results.com/][Objectives and Key Results]].] was to reduce the build/test
-feedback cycle for PRs to under 10 minutes. With a bit of
-out-of-the-box thinking we managed to get the full PR suite for this
-project down to under 4 minutes.
+My employer use CircleCI to run all tests on every Pull Request (PR)
+for our applications. In April these tests for one such Python Django
+application's PR workflow took about 13 minutes to run on CircleCI. We
+aimed to reduce this time to under 10 minutes. (Faster tests means
+faster feedback cycles, which means you can ship more often. Shipping
+more often in turn means you gain more confidence shipping---it's a
+virtuous cycle.) We got the tests to finish in under 4 minutes. This
+post discusses how.
 
 #+toc: headlines 1
 
@@ -181,4 +182,3 @@ though it sometimes ran a bit faster.
   /preparing/ to run the tests. However, by nudging our CI test setup
   towards simplicity, and playing to the strength of the platform, we
   were able to iterate and unlock ways to improve further.
-
