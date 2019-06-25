@@ -117,13 +117,14 @@ gain more confidence shipping---it's a virtuous cycle.
   difficult to achive an even split of the test files, since Django's
   test runner only accepts test module names. However, it prompted one
   of my colleagues to take a hard look at /why/ the tests failed when
-  running in parallel using Django's native method.], but a colleague
-  was able to fix the problem. After a bit of trial and error we
-  settled on running the tests in parallel across 3 CPUs[fn::By default
-  CircleCI gives you only 2 CPUs, but by upgrading to their new
-  [[https://circleci.com/pricing/usage/][Performance Plan]] we were able to specify different [[https://circleci.com/docs/2.0/configuration-reference/#resource_class][resource classes]]
-  for our jobs. This plan even saves us about one third off our
-  monthly CircleCI bill! How? We hate queueing and on the old plan
+  running in parallel using Django's native method.], but a couple of
+  my colleagues were able to fix the problem. (As well as the new
+  problem introduced by the first fix!) After a bit of trial and error
+  we settled on running the tests in parallel across 3 CPUs[fn::By
+  default CircleCI gives you only 2 CPUs, but by upgrading to their
+  new [[https://circleci.com/pricing/usage/][Performance Plan]] we were able to specify different [[https://circleci.com/docs/2.0/configuration-reference/#resource_class][resource
+  classes]] for our jobs. This plan even saves us about one third off
+  our monthly CircleCI bill! How? We hate queueing and on the old plan
   paid CircleCI for many containers. Most of our engineers are
   primarily based in one region, and all the containers were idle at
   night and all weekend. Paying only for what we /use/ makes so much
