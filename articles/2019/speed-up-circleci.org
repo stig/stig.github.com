@@ -1,81 +1,75 @@
 #+setupfile: ../../lvl-2.org
-#+title: Speeding up CircleCI tests for a Python Django project
+#+title: Speeding up tests on CircleCI for a Python Django project
 #+begin_abstract
-I discuss how we reduced the time to run one of my employer's Django
-application CircleCI test suites from about 13 minutes to under 4
-minutes.
+I outline how we reduced the time to run a Django application's CI
+test suite from about 13 minutes to under 4 minutes.
 #+end_abstract
 #+category: Python
 #+category: CircleCI
 
-My employer use CircleCI to run all tests on every Pull Request (PR)
-for our applications. In April these tests for one such Python Django
-application's PR workflow took about 13 minutes to run on CircleCI. We
-aimed to reduce this time to under 10 minutes. Faster tests means
-faster feedback cycles, which means you can ship more often. Shipping
-more often in turn means you gain more confidence shipping---it's a
-virtuous cycle.
+My employer uses CircleCI to run tests for each change before merging
+to the main branch. Faster tests means faster feedback cycles, which
+means you can ship more often. Shipping more often in turn means you
+gain more confidence shipping---it's a virtuous cycle.
+
+#+toc: headlines 1
 
 * Introduction
 
-  Picture [[april]] shows part of our workflow at the start of our story.
-  The =build= job creates a Docker image, containing only runtime
-  dependencies[fn::We don't want to add test dependencies to the base
-  image, as in our deploy jobs (not discussed here) we deploy this on
-  ElasticBeanstalk.]. It dumps this to a file with =docker save=, and
-  persists it in the workspace. The two tests jobs[fn::We deploy this
-  application in two separate configurations with different feature
-  sets. Each profile runs all the tests, except a small
-  portion---about 10%---only applicable to the other profile.]
-  restores the base image from the workspace. They build on this to
-  create an image with all the extra modules required to run the
-  tests. They then start dependencies, and runs the tests.
+  In April the tests for one such Python Django application's PR
+  workflow took about 13 minutes to run on CircleCI. We aimed to
+  reduce this time to under 10 minutes. Picture [[april]] shows the most
+  expensive part of our workflow at the start of our story.
 
   #+name: april
   #+caption: Starting Workflow (13m 24s)
   file:speed-up-circleci/wf-april.png
   # https://circleci.com/workflow-run/f54145e7-1cbd-415d-90c0-ce7047bdcfbe
 
-  Doing shared setup once, then fanning out like this is a
-  time-honoured way to reduce resource usage. However our attempts to
-  reduce duplication---saving the base image to workspace in the build
-  job, as well as /restoring/ this docker image in the two
-  =test_lp{eu,usa}= jobs---was more time consuming than we liked. We use
-  [[https://circleci.com/docs/2.0/docker-layer-caching/][Docker Layer Caching (DLC)]] on our PR branches, so building the base
-  docker image itself was usually pretty fast. (As long as runtime
-  dependencies didn't change.) However:
+* What did the workflow /do/?
+
+  The =build= job created a Docker image, containing only runtime
+  dependencies[fn::We don't want to add test dependencies to the base
+  image, as in our deploy jobs (not discussed here) we deploy this on
+  ElasticBeanstalk.]. It dumped this to a file with =docker save=, and
+  persisted it in the workspace. The two tests jobs[fn::We deploy this
+  application in two separate configurations with different feature
+  sets. Each profile runs all the tests, except a small
+  portion---about 10%---only applicable to the other profile.]
+  restored the base image from the workspace. They built on this to
+  create an image with all the extra modules required to run the
+  tests. They then started dependencies, and ran the tests.
+
+  Doing shared setup once, then /fan-out/, is a time-honoured way to
+  reduce resource usage. However our fan-out steps were expensive:
 
   - Issuing =docker save= to dump the built image to a file took around
-    30 seconds, and [[https://circleci.com/docs/2.0/configuration-reference/#persist_to_workspace][persisting it to the workspace]] for later jobs
-    added 60.
+    30 seconds, and [[https://circleci.com/docs/2.0/configuration-reference/#persist_to_workspace][persisting it to the workspace]] added another 60.
 
   - The =test_lp{usa,eu}= jobs then had to [[https://circleci.com/docs/2.0/configuration-reference/#attach_workspace][attach the workspace]] and load
-    this base image, adding another 30 seconds.
+    this base image, adding 30 seconds.
 
-  - Our test jobs mimiced the way most local devs work, starting
-    dependencies (Redis, Cassandra, and PostgreSQL) with
-    =docker-compose=. This required us to use the [[https://circleci.com/docs/2.0/executor-types/][machine executor]],
-    which added about 30-60 second startup overhead compared to the
-    docker executors.
+  - Our test jobs started dependencies (Redis, Cassandra, and
+    PostgreSQL) with =docker-compose=. This required us to use the
+    [[https://circleci.com/docs/2.0/executor-types/][machine executor]], which added about 30-60 second startup overhead
+    compared to the docker executors.
 
   - Because the base image from the =build= job contained only runtime
     dependencies, we had to build a /test/ docker image, extending the
-    base to add dependencies for testing. (Another 70-ish seconds.)
+    base to add dependencies for testing. Another 70-ish seconds.
 
-  - Finally, running the tests took about 6 minutes 30 seconds.
+  That's adds up to a lot of time /not yet/ running tests! Roughly half
+  of the total time, in fact: when the tests finally started, they
+  completed in about 6 minutes 30 seconds.
 
-  That all adds up to a lot of time /not/ running tests!
-
-* Discussion
+* Where CI and local testing differ
 
   Our CircleCI PR workflow mimiced how most of our engineers used
   =docker-compose= for local development: building a service image with
   all runtime dependencies, and a test image that extended that with
-  tests and test dependencies. However, it looked like this process
-  was an obstacle to speeding up our tests. Not all our engineers used
-  docker-compose locally, however. It is possible to run the tests
-  directly with Tox---indeed our Dockerfiles used tox internally. This
-  would be key to the solution.
+  tests and test dependencies. Using =docker-compose= was not required,
+  however. It was possible to run the tests directly with Tox---indeed
+  our Dockerfiles did this.
 
   In a CI context you want to run all the tests in a freshly created
   environment with all the latest dependencies. Locally you won't
@@ -83,19 +77,23 @@ virtuous cycle.
   every time you run tests, and you're more likely to cherry-pick
   relevant tests to run than run them all every time.
 
-  We changed the CI test workflow to no longer depend on building the
-  base image[fn::We still build it, because we want to test that we
-  can, since we use it in our deploy workflow still. But we no longer
-  need to save it to disk or persist it to the workspace for our
-  PRs.]. Instead we install both runtime and test dependencies into
-  the main container of the CircleCI job, and run tests directly. This
-  avoided minutes of saving the image to---and restoring it from---our
-  workspace.
+* Playing to the strenghts of the platform
 
-  At the same time we moved to launch auxiliary services using
-  CircleCI's Docker executor, using its native [[https://circleci.com/docs/2.0/configuration-reference/#docker--machine--macosexecutor][service container
-  support]] rather than docker-compose. This meant we avoided the extra
-  startup-cost of the =machine= executor.
+  We didn't want to change the way developers ran tests locally. But
+  we moved to use the lower-level Tox API for running tests in our CI
+  job.
+
+  First we changed the CI test workflow to no longer depend on
+  building the base image[fn::We still build it, because we want to
+  test that we can, since we use it in our deploy workflow still. But
+  we no longer need to save it to disk or persist it to the workspace
+  in our PR workflow.]. Instead we install all dependencies into the
+  main container of the CircleCI job. We launch auxiliary services
+  using CircleCI's native [[https://circleci.com/docs/2.0/configuration-reference/#docker--machine--macosexecutor][service container support]] (rather than
+  =docker-compose=), and run tests directly with Tox. This avoided
+  minutes of saving the image to---and restoring it from---our
+  workspace. We also avoided the extra startup-cost of the =machine=
+  executor.
 
   Installing dependencies in the primary container on CircleCI, rather
   than relying on our Dockerfile, also allowed us to use [[https://circleci.com/docs/2.0/language-python/#cache-dependencies][CircleCI's
@@ -106,10 +104,11 @@ virtuous cycle.
   shared cache when installing dependencies into our docker images,
   but now it saved about 90 seconds when building the virtualenvs.
 
-  Moreover, on CI we don't need to keep the DB after test runs for
-  debugging. Thus we were able to replace the DB image we used for
-  tests with an [[https://circleci.com/docs/2.0/databases/][in-memory Postgres image]], that doesn't save to disk.
-  This gave us another small speed boost.
+  So far we've cut down the time /preparing/ to run tests. Could we
+  speed up the running of the tests themselves? On CI we don't need to
+  keep the DB after test runs. Thus we replaced the DB image we used
+  for tests with an [[https://circleci.com/docs/2.0/databases/][in-memory Postgres image]], that doesn't save to
+  disk. This gave a modest reduction in test run time.
 
   Finally we moved to running the tests in parallel, using Django's
   test runner. At first this resulted in lots of test failures related
@@ -130,10 +129,10 @@ virtuous cycle.
   night and all weekend. Paying only for what we /use/ makes so much
   more sense!].
 
-  The most time-consuming jobs in our PR workflow (Figure [[june]]) now
-  completes in under four minutes---sometimes closer to three. Less
-  time than the old workflow spent /preparing/ to start running the
-  tests!
+  Figure [[june]] shows the result of the above steps. The workflow now
+  completes comfortably in under four minutes---sometimes closer to
+  three. Less time than the old workflow spent /preparing/ to start
+  running the tests!
 
   #+name: june
   #+caption: Final Workflow (3m 48s)
@@ -142,10 +141,13 @@ virtuous cycle.
 
 * Conclusion
 
-  We managed to reduce the run-time of our PR tests from around 13
-  minutes to under 4. There was no single change that gave a massive
-  reduction on its own. Neither did we expect it to! Running tests in
-  parallel would not have helped much when we spent most of the time
-  /preparing/ to run the tests. However, by nudging our CI test setup
-  towards simplicity, and playing to the strengths of the platform, we
-  were able to iterate and unlock ways to improve further.
+  Speeding up our CI test runs was an exciting challenge that required
+  a multi-pronged approach. There was no single change that gave a
+  massive reduction on its own. Running tests in parallel, for
+  example, would not have helped much when we spent most of the time
+  /preparing/ to run the tests.
+
+  The key came from recognising the differences between running tests
+  in a CI vs local context. With this we were comfortable nudging our
+  CI setup towards playing to the strengths of the CircleCI platform.
+  This allowed us to iterate and unlock ways to improve test run time.
