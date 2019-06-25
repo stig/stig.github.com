@@ -87,13 +87,13 @@ gain more confidence shipping---it's a virtuous cycle.
   building the base image[fn::We still build it, because we want to
   test that we can, since we use it in our deploy workflow still. But
   we no longer need to save it to disk or persist it to the workspace
-  in our PR workflow.]. Instead we install all dependencies into the
-  main container of the CircleCI job. We launch auxiliary services
-  using CircleCI's native [[https://circleci.com/docs/2.0/configuration-reference/#docker--machine--macosexecutor][service container support]] (rather than
-  =docker-compose=), and run tests directly with Tox. This avoided
-  minutes of saving the image to---and restoring it from---our
-  workspace. We also avoided the extra startup-cost of the =machine=
-  executor.
+  in our PR workflow.]. Instead we run =tox= directly from the main
+  container of our =test_lp{eu,usa}= jobs to install all dependencies.
+  We launch auxiliary services using CircleCI's native [[https://circleci.com/docs/2.0/configuration-reference/#docker--machine--macosexecutor][service
+  container support]] (rather than =docker-compose=), and run tests
+  directly with =tox=. This avoids minutes of saving the image to---and
+  restoring it from---our workspace. We also avoided the extra
+  startup-cost of the =machine= executor.
 
   Installing dependencies in the primary container on CircleCI, rather
   than relying on our Dockerfile, also allowed us to use [[https://circleci.com/docs/2.0/language-python/#cache-dependencies][CircleCI's
