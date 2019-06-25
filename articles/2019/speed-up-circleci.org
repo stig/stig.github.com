@@ -62,6 +62,12 @@ gain more confidence shipping---it's a virtuous cycle.
   of the total time, in fact: when the tests finally started, they
   completed in about 6 minutes 30 seconds.
 
+* Why was workspace interaction so slow?
+
+  Our base image is big! I think mainly because the Docker =python:2=
+  image we started with is /already/ big. This has a knock-on effect on
+  saving to, and restoring from, the workspace.
+
 * Where CI and local testing differ
 
   Our CircleCI PR workflow mimiced how most of our engineers used
@@ -79,21 +85,23 @@ gain more confidence shipping---it's a virtuous cycle.
 
 * Playing to the strenghts of the platform
 
-  We didn't want to change the way developers ran tests locally. But
-  we moved to use the lower-level Tox API for running tests in our CI
-  job.
+  It is possible we could have sped up the workspace interaction steps
+  by basing our Dockerfiles on a slimmer =python:2= image. However this
+  would change what we deploy, and what engineers use locally. We
+  preferred to avoid that this time. (Although this is still on the
+  table for speeding up our /deploy/ jobs.)
 
-  First we changed the CI test workflow to no longer depend on
+  Instead we changed the CI test workflow to no longer depend on
   building the base image[fn::We still build it, because we want to
-  test that we can, since we use it in our deploy workflow still. But
-  we no longer need to save it to disk or persist it to the workspace
-  in our PR workflow.]. Instead we run =tox= directly from the main
-  container of our =test_lp{eu,usa}= jobs to install all dependencies.
-  We launch auxiliary services using CircleCI's native [[https://circleci.com/docs/2.0/configuration-reference/#docker--machine--macosexecutor][service
-  container support]] (rather than =docker-compose=), and run tests
-  directly with =tox=. This avoids minutes of saving the image to---and
-  restoring it from---our workspace. We also avoided the extra
-  startup-cost of the =machine= executor.
+  verify that we can. It is after all used in our deploy workflow
+  still. But we no longer need to save it to disk, nor persist it to
+  the workspace in our PR workflow.]. We changed our =test_lp{eu,usa}=
+  jobs to launch auxiliary services using CircleCI's docker executor
+  native [[https://circleci.com/docs/2.0/configuration-reference/#docker--machine--macosexecutor][service container support]] (rather than =docker-compose=), and
+  run =tox= from the main container to install dependencies and run
+  tests. This avoids minutes of saving the image to---and restoring it
+  from---our workspace. It also eliminated the extra startup-cost of
+  the =machine= executor.
 
   Installing dependencies in the primary container on CircleCI, rather
   than relying on our Dockerfile, also allowed us to use [[https://circleci.com/docs/2.0/language-python/#cache-dependencies][CircleCI's
