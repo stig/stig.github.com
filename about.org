@@ -26,3 +26,15 @@ the University of Westminster. I graduated in 2003.
   Code examples are by me, unless otherwise specified, and available
   under the [[https://creativecommons.org/licenses/by-sa/4.0/][Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)]]
   lisence.
+* Contact
+  :PROPERTIES:
+  :CUSTOM_ID: contact
+  :END:
+
+  If you want to contact me about one of my software projects I ask
+  that you do so by filing an issue on [[https://github.com/stig][GitHub]].
+
+  Otherwise the best way of contacting me is via email. I used to give
+  my email address here, but in a (most likely futile) attempt to
+  limit spam I've removed it. (You should be able to figure it out,
+  though.)
