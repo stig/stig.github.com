@@ -30,6 +30,9 @@ commands:
             --eval "(require 'ob-tangle)"
             --eval '(org-babel-tangle-file "~/emacs.d/README.org")'
             --eval '(org-babel-tangle-file "~/emacs.d/Blogging.org")'
+      - run:
+          name: "Byte-compile emacs config"
+          command: emacs --batch --load ~/.emacs.d/init.el
 
 jobs:
   build:
