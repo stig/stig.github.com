@@ -12,11 +12,27 @@ executors:
     docker:
       - image: circleci/python:3.7
 
+commands:
+  configure-emacs:
+    steps:
+      - run: apt-get install git
+      - run:
+          name: "Checkout Emacs Config"
+          command: git clone https://github.com/stig/.emacs.d.git ~/emacs.d
+      - run:
+          name: "Tangle relevant Emacs config files"
+          command: >
+            emacs --batch
+            --eval "(require 'ob-tangle)"
+            --eval '(org-babel-tangle-file "~/emacs.d/README.org")'
+            --eval '(org-babel-tangle-file "~/emacs.d/Blogging.org")'
+
 jobs:
   build:
     executor: emacs26
     steps:
       - checkout
+      - configure-emacs
       - restore_cache:
           keys:
             - v5-org-{{ .Branch }}
@@ -32,8 +48,7 @@ jobs:
           name: Publish Blog
           command: >
             emacs --batch
-            --load .circleci/deps.el
-            --load .circleci/config.el
+            --load ~/.emacs.d/init.el
             --funcall org-publish-all
       - store_artifacts:
           path: ~/public_html
