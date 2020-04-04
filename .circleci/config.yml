@@ -7,7 +7,7 @@ executors:
   emacs26:
     working_directory: ~/blog
     docker:
-      - image: silex/emacs:26.3
+      - image: silex/emacs:26.3-dev
   python3:
     docker:
       - image: circleci/python:3.7
@@ -15,7 +15,6 @@ executors:
 commands:
   configure-emacs:
     steps:
-      - run: apt-get install git
       - run:
           name: "Checkout Emacs Config"
           command: git clone https://github.com/stig/.emacs.d.git ~/emacs.d
