@@ -17,7 +17,12 @@ commands:
     steps:
       - run:
           name: "Checkout Emacs Config"
-          command: git clone https://github.com/stig/.emacs.d.git ~/emacs.d
+          command: |
+            if test -d ~/emacs.d ; then
+                cd ~/emacs.d && git pull
+            else
+                git clone https://github.com/stig/.emacs.d.git ~/emacs.d
+            fi
       - run:
           name: "Tangle relevant Emacs config files"
           command: >
@@ -31,11 +36,11 @@ jobs:
     executor: emacs26
     steps:
       - checkout
-      - configure-emacs
       - restore_cache:
           keys:
             - v5-org-{{ .Branch }}
             - v5-org-master
+      - configure-emacs
       - run:
           name: Tangle CSS
           command: >
@@ -55,6 +60,7 @@ jobs:
           key: v5-org-{{ .Branch }}-{{ .Revision }}
           paths:
             - ~/.emacs.d
+            - ~/emacs.d
       - persist_to_workspace:
           root: ~/public_html
           paths:
