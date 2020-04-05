@@ -56,6 +56,9 @@ jobs:
           command: >
             emacs --batch
             --load ~/.emacs.d/init.el
+            --eval "(setq clojure-mode-hook nil)"
+            --eval "(setq prog-mode-hook nil)"
+            --eval "(setq text-mode-hook nil)"
             --funcall org-publish-all
       - store_artifacts:
           path: ~/public_html
