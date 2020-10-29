@@ -29,7 +29,7 @@ These are all my articles in reverse chronological order.
 * [[file:articles/2018/submarine-sonar-hiring.org][My hiring experience as a submarine sonar operator in the Norwegian Navy]] :Talks:Hiring:
 #+include: articles/2018/submarine-sonar-hiring.org::begin_abstract :only-contents t
 * [[file:articles/2018/creating-index-entry-from-post.org][Linking Org mode blog posts into the index page]] :Emacs:Org:
-#+include: articles/2018/creating-index-entry-from-post.org::begin_abstract :only-contents t
+#+include: articles/2018/creating-index-entry-from-post.org::abstract :only-contents t
 * [[file:articles/2018/making-team-decisions.org][Making Team Decisions]]                                           :Practices:
 #+include: articles/2018/making-team-decisions.org::begin_abstract :only-contents t
 * [[file:articles/2018/org-mode-rss.org][Creating an RSS feed with Org mode]]                              :Org:Emacs:

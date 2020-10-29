@@ -2,11 +2,6 @@
 #+title: Linking Org mode blog posts into the index page
 #+category: Emacs
 #+category: Org
-#+begin_abstract
-I wanted it to be easy to create a new entry on the index page. I call
-on Emacs Lisp to help.
-#+end_abstract
-
 As mentioned when I [[../2017/blogging-with-org-mode.org][first moved to use Org mode for blogging]] I haven't
 had a way to automatically create an index of posts. It's been a
 rather tedious manual task, and now that I've [[file:org-mode-rss.org][added TAGs and the
@@ -16,23 +11,24 @@ more Emacs lisp, and experiment with the Org APIs.
 
 First and foremost I wanted a function that I could execute when
 visiting a blog post that generated the index entry for me, ready to
-paste into the index page. [[(parse-metadata)][parse-metadata]] below is what I came up
-with. I query the Org parsetree for the title, date and category
-keywords, and the =abstract= special block.  I created a little helper
-[[(macro)][macro]] to avoid repetition, since I expected to extract three different
-keywords in the same way. (I've since decided not to extract =DATE=
-keywords). Figuring out how to extract the [[(abstract)][abstract]] was much harder,
-but I managed something that works well enough.
+paste into the index page. The ~parse-metadata~ function below is what
+I came up with. I query the Org parsetree for the title, date and
+category keywords, and the =abstract= special block. I created a
+little helper ~sb/org-kw-get~ function to avoid repetition, since I
+expected to extract three different keywords in the same way. (I've
+since decided not to extract =DATE= keywords). Figuring out how to
+extract the /abstract/ was much harder, but I managed something that
+works well enough.
 
 For generating the entry (in index.org) for my blog post I use Org
 mode programmatically. One caveat was that some of the APIs (I think
-most notably the [[(set-tags)][org-set-tags-to]] call) would not work until I [[(org-mode)][turned
-on Org mode]] in my temporary buffer. Instead of returning this as a
+most notably the ~org-set-tags-to~ call) would not work until I turned
+on Org mode in my temporary buffer. Instead of returning this as a
 string, I copy it to my kill ring so it's ready for pasting into the
 index page.
 
 #+BEGIN_SRC emacs-lisp -n -r
-(defun sb/org-kw-get (key) (ref:macro)
+(defun sb/org-kw-get (key)
   "Return a lambda that takes an Org keyword
 element and returns its :value property if its :key
 property matches `key'."
@@ -40,7 +36,7 @@ property matches `key'."
      (if (equal ,key (org-element-property :key kw))
 	 (org-element-property :value kw))))
 
-(defun sb/parse-metadata () (ref:parse-metadata)
+(defun sb/parse-metadata ()
   "Call in a blog post to get an entry suitable for
 linking to this post from the index page."
   (interactive)
@@ -49,24 +45,24 @@ linking to this post from the index page."
 		(buffer-file-name)))
 	 (tree (org-element-parse-buffer))
 
-	      (title
-	       (org-element-map tree 'keyword
-		 (sb/org-kw-get "TITLE") nil t))
+	 (title
+	  (org-element-map tree 'keyword
+	    (sb/org-kw-get "TITLE") nil t))
 
-	      (categories
-	       (org-element-map tree 'keyword
-		 (sb/org-kw-get "CATEGORY")))
+	 (categories
+	  (org-element-map tree 'keyword
+	    (sb/org-kw-get "CATEGORY")))
 
-	      (abstract (ref:abstract)
-			(org-element-interpret-data
-			 (org-element-map tree 'special-block
-			   (lambda (sb)
-			     (if (equal "abstract"
-					(org-element-property :type sb))
-				 (org-element-contents sb)))))))))
+	 (abstract 
+	  (org-element-interpret-data
+	   (org-element-map tree 'special-block
+	     (lambda (sb)
+	       (if (equal "abstract"
+			  (org-element-property :type sb))
+		   (org-element-contents sb)))))))))
 
 (with-temp-buffer
-  (org-mode)   (ref:org-mode)
+  (org-mode)
   (org-insert-heading)
 
   ;; Would have loved to use `org-insert-link' here but
@@ -83,7 +79,7 @@ linking to this post from the index page."
 
   ;; Need to go back to the first line to set tags
   (goto-char (point-min))
-  (org-set-tags-to categories) (ref:set-tags)
+  (org-set-tags-to categories)
   (org-set-tags nil t) ;; adjust tags in the source
 
   ;; Copy the contents of the temporary buffer as a string
@@ -93,3 +89,7 @@ linking to this post from the index page."
    (point-min) (point-max)))
 #+END_SRC
 
+* Abstract                                                         :noexport:
+
+I wanted it to be easy to create a new entry on the index page. I call
+on Emacs Lisp to help.
