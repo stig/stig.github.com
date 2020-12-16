@@ -1,6 +1,5 @@
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
-#+HTML_HEAD: <link rel="icon" type="image/png" href="icon.png" />
-#+HTML_HEAD: <meta name="referrer" content="same-origin">
+#+HTML_HEAD_EXTRA: <link rel="icon" type="image/png" href="icon.png" />
+#+HTML_HEAD_EXTRA: <meta name="referrer" content="same-origin">
 #+DESCRIPTION: Stig's Personal Soapbox
 #+title: Title of Page
 #+subtitle: Subtitle of page. Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.

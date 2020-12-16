@@ -25,7 +25,7 @@
 ")
 
 (setq common-properties
-      '(:author "Stig Brautaset"
+      `(:author "Stig Brautaset"
 	:email "stig@brautaset.org"
 
 	:section-numbers nil
@@ -34,7 +34,15 @@
 	:with-toc nil
 
 	:html-doctype "html5"
-	:html-head-include-default-style nil
+
+	:html-head ,(concat "<style type=\"text/css\">"
+			    "/*<![CDATA[*/"
+			     (with-temp-buffer
+			       (insert-file-contents (expand-file-name "~/blog/style.css"))
+			       (buffer-string))
+			     "/*]]>*/"
+			    "</style>")
+        :html-head-include-default-style nil
 	:html-head-include-scripts nil
 	:html-html5-fancy t
 	:html-metadata-timestamp-format "%e %B %Y"))

@@ -1,7 +1,6 @@
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../style.css" />
-#+HTML_HEAD: <link rel="icon" type="image/png" href="../../icon.png" />
-#+HTML_HEAD: <link rel="alternative" type="application/rss+xml" href="https://www.brautaset.org/feed.xml" title="Stig's Soapbox RSS Feed" />
-#+HTML_HEAD: <meta name="referrer" content="same-origin">
+#+HTML_HEAD_EXTRA: <link rel="icon" type="image/png" href="../../icon.png" />
+#+HTML_HEAD_EXTRA: <link rel="alternative" type="application/rss+xml" href="https://www.brautaset.org/feed.xml" title="Stig's Soapbox RSS Feed" />
+#+HTML_HEAD_EXTRA: <meta name="referrer" content="same-origin">
 #+DESCRIPTION: Stig's Personal Soapbox
 #+BIND: org-html-link-home "../../index.html"
 #+BIND: org-html-link-up "../../about.html"
